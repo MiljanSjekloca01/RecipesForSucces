@@ -62,17 +62,20 @@ h1{
    position:absolute;
    display: flex;
    flex-direction: column;
-   padding:1rem;
-   
+   padding:2rem;
+   background-color: rgba(17, 17, 17, 0.5);
+   border-top-right-radius:1rem;   
 }
 
 .nav-list > ul > li > div > a {
     padding:5px 0px;
+    color:white;
+    font-weight: 500;
+    text-shadow: 2px 2px 2px black;
 }
 
 .nav-list > ul > li > div > a:hover {
-   color: red;
-   text-shadow: 1px 1px 1px black;
+   text-shadow:none;
 }
 
 

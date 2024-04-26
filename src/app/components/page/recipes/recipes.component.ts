@@ -26,7 +26,7 @@ export class RecipesComponent implements OnInit,OnDestroy{
       this.showMoreRecipes = true;
       if(param.tag){
         this.recipes = this.recipeService.getRecipesByTag(param.tag)
-      }else if(param.search){
+      }else if(param.search || param.search === ""){
         this.recipes = this.recipeService.getRecipesBySearch(param.search)
       }
       this.visibleRecipes = this.recipes.slice(0,this.recipesShownNumber);

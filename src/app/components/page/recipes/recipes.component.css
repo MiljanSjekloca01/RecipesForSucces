@@ -1,11 +1,9 @@
 
 .container{
-    width:100%;
-    padding:1rem 0.5rem;
+    padding:1rem 0rem;
     display:grid;
     grid-template-columns: repeat(auto-fit,minmax(300px,auto));
     gap:2rem;
-
 }
 
 .container > li {

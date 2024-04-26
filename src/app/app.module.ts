@@ -7,12 +7,14 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import { AngularMaterialModule } from "./angular-material.module";
 import { RecipesComponent } from "./components/page/recipes/recipes.component";
 import { FormsModule } from "@angular/forms";
+import { SearchBarComponent } from "./components/partials/searchBar/searchBar.component";
 
 @NgModule({
     declarations:[
         AppComponent,
         HeaderComponent,
-        RecipesComponent
+        RecipesComponent,
+        SearchBarComponent
     ],
     imports:[
         BrowserModule,

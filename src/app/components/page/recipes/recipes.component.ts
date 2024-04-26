@@ -19,15 +19,24 @@ export class RecipesComponent implements OnInit,OnDestroy{
   showMoreRecipes = true;
   routeSubscription: Subscription
 
+  notFoundVisible = false;
+
   ngOnInit(){
     console.log(this.recipes);
     this.routeSubscription = this.activeRoute.params.subscribe( param => {
       this.recipesShownNumber = 4;
       this.showMoreRecipes = true;
+      this.notFoundVisible = false;
       if(param.tag){
         this.recipes = this.recipeService.getRecipesByTag(param.tag)
+        if(this.recipes.length === 0){
+          this.notFoundVisible = true;
+        }
       }else if(param.search || param.search === ""){
         this.recipes = this.recipeService.getRecipesBySearch(param.search)
+        if(this.recipes.length === 0){
+          this.notFoundVisible = true;
+        }
       }
       this.visibleRecipes = this.recipes.slice(0,this.recipesShownNumber);
       this.shouldMoreRecipesButtonBeDisplayed();

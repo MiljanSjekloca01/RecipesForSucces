@@ -9,8 +9,9 @@ input{
     border:none;
     width:10rem;
     background-color: #f1f1f1;
-    padding:1rem;
+    padding:0.8rem;
     font-weight: 500;
+    font-size:1rem;
 }
 
 div button{

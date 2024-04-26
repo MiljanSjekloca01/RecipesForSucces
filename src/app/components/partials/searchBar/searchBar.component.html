@@ -1,5 +1,6 @@
 <div>
     <input #s type="text" placeholder="Search for the recipe" (keyup.enter)="search(s.value)"
     [value]="searchTerm"/>
-    <button (click)="search(s.value)">Search</button>    
+    <button (click)="search(s.value)">
+    <mat-icon>search</mat-icon></button>    
 </div>

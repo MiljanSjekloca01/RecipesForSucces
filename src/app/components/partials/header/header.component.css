@@ -1,9 +1,12 @@
-.header-container{
+.header-container{ 
+  display:flex;
+  flex-direction: column;
   box-shadow: 0 0.5px 10px black;
   padding:0.5rem;
 }
 
 .auth-header-list{
+    flex-wrap: wrap;
     display:flex;
     justify-content: center;
 }

@@ -8,13 +8,15 @@ import { AngularMaterialModule } from "./angular-material.module";
 import { RecipesComponent } from "./components/page/recipes/recipes.component";
 import { FormsModule } from "@angular/forms";
 import { SearchBarComponent } from "./components/partials/searchBar/searchBar.component";
+import { NotFoundComponent } from "./components/partials/not-found/not-found.component";
 
 @NgModule({
     declarations:[
         AppComponent,
         HeaderComponent,
         RecipesComponent,
-        SearchBarComponent
+        SearchBarComponent,
+        NotFoundComponent
     ],
     imports:[
         BrowserModule,

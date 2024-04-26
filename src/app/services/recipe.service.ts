@@ -14,4 +14,17 @@ export class RecipeService {
     getRecipes(){
         return this.recipes.slice();
     }
+
+
+    getRecipesByTag(tagLink: string){
+        return this.recipes.filter( recipe => {
+            return recipe.tags.some( tag => tag.toLowerCase().includes(tagLink.toLowerCase()))
+    })}
+
+    getRecipesBySearch(search: string){
+        return this.recipes.filter( recipe => {
+            return recipe.title.toLowerCase().includes( search.toLowerCase())
+            || recipe.tags.some( tag => tag.toLowerCase().includes(search.toLowerCase()))
+        })
+    }
 }

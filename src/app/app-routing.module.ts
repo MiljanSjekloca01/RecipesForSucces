@@ -6,6 +6,8 @@ import { RecipesComponent } from "./components/page/recipes/recipes.component";
 
 const routes: Routes = [
     {path: "",component: RecipesComponent},
+    {path: "tag/:tag",component: RecipesComponent},
+    {path: "search/:search",component: RecipesComponent}
 ]
 
 @NgModule({

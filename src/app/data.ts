@@ -76,7 +76,7 @@ export const sample_recipes:Recipe[] = [
         prepTime: "10",
         type: "public",
         owner: "Patrick Beverly",
-        tags:["Drinks"]
+        tags:["Drink"]
     },
 
     {

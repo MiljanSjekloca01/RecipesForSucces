@@ -1,3 +1,4 @@
+<app-header></app-header>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
 <div class="container">
     <li *ngFor="let recipe of visibleRecipes">
@@ -10,5 +11,8 @@
 </div>
 
 <div class="button-container">
-    <button class="button-end" (click)="showMoreRecipes()">Show More</button>
+    <button 
+    class="button-end" 
+    (click)="onShowMoreRecipes()"
+    [ngClass]="{'remove-button': !showMoreRecipes }">Show More</button>
 </div>

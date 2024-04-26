@@ -13,6 +13,10 @@
   margin:auto
 }
 
+.container > li:hover > a > img {
+    box-shadow: 1px 1px 10px black;
+}
+
 .tags{
     margin: 0.2rem 1rem 0.2rem 0rem;
     display:inline-flex;
@@ -45,4 +49,9 @@ img{
     opacity:0.5;
     background-color: darkred;
     color:white;
+}
+
+
+.remove-button{
+    display:none;
 }

@@ -14,7 +14,7 @@ export class NotFoundComponent {
   imageUrl: string = "https://cdni.iconscout.com/illustration/premium/thumb/not-found-7621869-6167023.png?f=webp"
   
   @Input()
-  title: string = "Not Found";
+  title: string = "There is no such recipe";
 
   @Input()
   visible: boolean = false;

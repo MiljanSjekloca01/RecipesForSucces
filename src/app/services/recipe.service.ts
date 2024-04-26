@@ -31,4 +31,8 @@ export class RecipeService {
         }
     }
 
+    getRecipeById(id: string){
+        return this.recipes.find( recipe => recipe.id === id)
+    }
+
 }

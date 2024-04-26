@@ -9,6 +9,7 @@ import { RecipesComponent } from "./components/page/recipes/recipes.component";
 import { FormsModule } from "@angular/forms";
 import { SearchBarComponent } from "./components/partials/searchBar/searchBar.component";
 import { NotFoundComponent } from "./components/partials/not-found/not-found.component";
+import { RecipeDetailComponent } from "./components/page/recipe-detail/recipe-detail.component";
 
 @NgModule({
     declarations:[
@@ -16,7 +17,8 @@ import { NotFoundComponent } from "./components/partials/not-found/not-found.com
         HeaderComponent,
         RecipesComponent,
         SearchBarComponent,
-        NotFoundComponent
+        NotFoundComponent,
+        RecipeDetailComponent
     ],
     imports:[
         BrowserModule,

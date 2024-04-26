@@ -30,29 +30,20 @@ export class RecipesComponent implements OnInit,OnDestroy{
       if(param.tag){
         this.recipes = this.recipeService.getRecipesByTag(param.tag)
         if(this.recipes.length === 0){
-          this.notFoundVisible = true;
+          //this.notFoundVisible = true;
         }
       }else if(param.search || param.search === ""){
         this.recipes = this.recipeService.getRecipesBySearch(param.search)
         if(this.recipes.length === 0){
-          this.notFoundVisible = true;
         }
       }
       this.visibleRecipes = this.recipes.slice(0,this.recipesShownNumber);
-      this.shouldMoreRecipesButtonBeDisplayed();
     })
   }
 
   onShowMoreRecipes(){
     this.recipesShownNumber += 4;
     this.visibleRecipes = this.recipes.slice(0,this.recipesShownNumber)
-    this.shouldMoreRecipesButtonBeDisplayed()
-  }
-
-  shouldMoreRecipesButtonBeDisplayed(){
-    if(this.recipes.length <= this.recipesShownNumber){
-      this.showMoreRecipes = false;
-    }
   }
 
   ngOnDestroy(): void {

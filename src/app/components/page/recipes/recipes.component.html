@@ -1,12 +1,11 @@
 <app-header></app-header>
 <app-not-found
-title="There is no such recipe"
-[visible]="notFoundVisible">
+[visible]="recipes.length === 0">
 </app-not-found>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
 <div class="container">
     <li *ngFor="let recipe of visibleRecipes">
-    <a routerLink="/">
+    <a routerLink="/recipe/{{recipe.id}}">
         <img [src]="recipe.imageUrl" [alt]="recipe.title">
         <p class="tags" *ngFor="let tag of recipe.tags">
             <mat-icon class="material-symbols-outlined">label_imporant</mat-icon>{{ tag }}</p>
@@ -14,9 +13,8 @@ title="There is no such recipe"
     </a></li>
 </div>
 
-<div class="button-container">
+<div class="button-container" *ngIf="this.recipes.length > this.recipesShownNumber">
     <button 
     class="button-end" 
-    (click)="onShowMoreRecipes()"
-    [ngClass]="{'remove-button': !showMoreRecipes }">Show More</button>
+    (click)="onShowMoreRecipes()">Show More</button>
 </div>

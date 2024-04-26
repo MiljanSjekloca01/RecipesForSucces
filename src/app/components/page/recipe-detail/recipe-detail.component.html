@@ -1,0 +1,15 @@
+<app-header></app-header>
+<app-not-found [visible]="!recipe"></app-not-found>
+<div *ngIf="recipe">
+    <div class="navigation">
+        <a routerLink="/">Recipes</a>
+        <a *ngFor="let tag of recipe.tags" routerLink="/tag/{{tag}}">{{ tag }}</a>
+    </div>
+    <h1>{{recipe.title}}</h1>
+    <div class="main-content">
+        
+    </div>
+
+</div> 
+
+

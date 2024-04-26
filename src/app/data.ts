@@ -71,7 +71,7 @@ export const sample_recipes:Recipe[] = [
     {
         id: "7",
         title: "Frozen Fruit Smoothie",
-        description: "his frozen fruit smoothie is fast, simple, nutritious, and tasty with extra protein from the Greek yogurt. It’s a great on-the-go breakfast or afternoon snack. I always include a banana, but choose your favorite frozen fruits such as strawberries, cherries, pineapple, raspberries, and blueberries.",
+        description: "This frozen fruit smoothie is fast, simple, nutritious, and tasty with extra protein from the Greek yogurt. It’s a great on-the-go breakfast or afternoon snack. I always include a banana, but choose your favorite frozen fruits such as strawberries, cherries, pineapple, raspberries, and blueberries.",
         imageUrl: "https://www.allrecipes.com/thmb/xV_76a1HgmtwhfvvPgUB2l6Rr34=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/8624320_Frozen-Fruit-Smoothie_Pat-Bernitt_4x3-1af73c32ccab4bfebb9ccd2410df6391.jpg",
         prepTime: "10",
         type: "public",

@@ -1,13 +1,38 @@
 <app-header></app-header>
 <app-not-found [visible]="!recipe"></app-not-found>
-<div *ngIf="recipe">
+<div *ngIf="recipe" class="container">
     <div class="navigation">
-        <a routerLink="/">Recipes</a>
-        <a *ngFor="let tag of recipe.tags" routerLink="/tag/{{tag}}">{{ tag }}</a>
+        <a routerLink="/">
+            <mat-icon>keyboard_double_arrow_left</mat-icon>
+            Recipes
+            <mat-icon>keyboard_double_arrow_right</mat-icon>
+        </a>
+        <a *ngFor="let tag of recipe.tags" routerLink="/tag/{{tag}}">
+            <mat-icon>keyboard_double_arrow_left</mat-icon>
+            {{ tag }}
+            <mat-icon>keyboard_double_arrow_right</mat-icon>
+        </a>
     </div>
-    <h1>{{recipe.title}}</h1>
+    <div class="title">
+        <p>{{recipe.title }}</p>
+        <p>made by</p>
+        <p>{{ recipe.owner }}</p>
+    </div>
     <div class="main-content">
-        
+        <div class="image-container">
+            <img [src]="recipe.imageUrl" [alt]="recipe.title">
+        </div>
+        <div class="description">
+            <h3>Description</h3><p>{{ recipe.description }}</p>
+            <h3>Preparation time</h3><p>Preparation time: {{ recipe.prepTime }} mins</p>
+            <div *ngIf="recipe.cousine">
+                <h3>Cousine</h3><p>{{ recipe.cousine }}</p></div>
+            
+        </div>
+    </div>
+
+    <div>
+        <p>Halo</p>
     </div>
 
 </div> 

@@ -18,7 +18,7 @@
         <p>made by</p>
         <p>{{ recipe.owner }}</p>
     </div>
-    <div class="main-content">
+    <div class="top-content">
         <div class="image-container">
             <img [src]="recipe.imageUrl" [alt]="recipe.title">
         </div>
@@ -26,14 +26,48 @@
             <h3>Description</h3><p>{{ recipe.description }}</p>
             <h3>Preparation time</h3><p>Preparation time: {{ recipe.prepTime }} mins</p>
             <div *ngIf="recipe.cousine">
-                <h3>Cousine</h3><p>{{ recipe.cousine }}</p></div>
-            
+                <h3>Cousine</h3><p>{{ recipe.cousine }}</p></div>  
         </div>
     </div>
 
-    <div>
-        <p>Halo</p>
+    <div class="main-content">
+        <div class="ingredients">
+            <h3>Ingredients</h3>
+            <ul class="k">
+                <li *ngFor="let ingredient of recipe.ingredients">
+                    {{ ingredient }}
+                </li>
+            </ul>
+        </div>
+        <div class="directions">
+            <h3>Directions</h3>
+            <div class="steps" *ngFor="let step of recipe.steps;let i = index;">
+                <h4>Step {{ i + 1 }}:</h4>
+                <p>{{ step }}</p>
+            </div>
+        </div>
     </div>
+    <div class="review">
+        <h3>{{recipe.owner}}</h3>
+        <h3 id="title">{{recipe.title}}</h3>
+        <h4>Your rating</h4>
+        <p>Neke zvezdice</p>
+        <!-- to be done -->
+        <h4>Your review</h4>
+        <textarea cols="65" rows="4" maxlength="150" placeholder="What did you think about this recipe?"></textarea>
+        <div class="comment-buttons">
+            <button type="button">Cancel</button>
+            <button type="button">Submit</button>
+        </div>
+        <div *ngIf="recipe.comments">
+            <div *ngFor="let comment of recipe.comments.slice(0, 4)" class="comments">
+                <h4>{{comment.user}}</h4>
+                <p>{{comment.text}}</p>
+            </div>
+            <button type="button">Load more comments</button>
+        </div>
+    </div>
+
 
 </div> 
 

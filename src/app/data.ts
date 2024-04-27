@@ -11,18 +11,42 @@ export const sample_recipes:Recipe[] = [
         cousine: "Italian",
         type: "public",
         owner: "Amanda Christie",
-        tags:["Chicken","Lunch"]
+        tags:["Chicken","Lunch"],
+        servings: "4",
+        ingredients:[
+            "4 (4 ounce) chicken breast cutlets",
+            "1 teaspoon kosher salt",
+            "1/4 cup all-purpose flour",
+            "1 teaspoon grated lemon zest",
+            "1/2 cup chicken broth",
+            "2 tablespoons heavy whipping cream",
+            "1 lemon, quartered, for garnish",
+        ],
+        steps:[
+            "Gather all ingredients.",
+            "Season chicken with salt and pepper. Place flour in a shallow bowl. Dredge chicken cutlets in flour, shaking off excess. Place chicken on a large plate.",
+            "Heat oil in a large skillet over medium-high heat. Add chicken to skillet, and cook until golden and cooked through, about 3 minutes per side. Transfer chicken to a large plate.",
+            "Add butter, shallot, and lemon zest to drippings in skillet, and cook over medium heat, stirring constantly, until shallot is softened, about 1 minute. Add lemon juice, and cook, scraping up any browned bits from bottom of skillet. Stir in chicken broth and parsley; cook, stirring often, until slightly thickened, about 2 minutes.",
+            "Remove from heat, and slowly add cream, whisking constantly and vigorously. Return chicken to skillet, and spoon sauce over chicken. Garnish with quartered lemon slices before serving.",
+            
+        ],
+        comments:[
+           { user: "Alice Keys",text: "Amazing,i just made this recipe myself and im enjoying it"},
+           { user: "Draymond Green", text: "Followed exactly and it came out so delicious! Thank you so much for a healthy, eclectic, flavorful meal!!"},
+           { user: "Stephan Tries", text: "Great meal !"},
+        ],
     },
     {
         id: "2",
         title: "Fish Puttanesca",
-        description: "This fish puttanesca, served over spaghetti, comes together quickly. Normally, puttanesca sauce, simple but robust, doesn’t include a protein, but it’s easy to add some cod filets, and the addition barely influences the cooking time. Any mild white fish will be just fine in this dish.",
+        description: "This fish puttanesca, served over spaghetti, comes together quickly. Normally, puttanesca sauce, simple but robust, doesnt include a protein, but its easy to add some cod filets, and the addition barely influences the cooking time. Any mild white fish will be just fine in this dish.",
         imageUrl: "https://realfood.tesco.com/media/images/1400x919FishPuttanesca-25ce853f-2c4e-4f20-a4ed-fd0b9d5f060c-0-1400x919.jpg",
         prepTime: "25-30",
         cousine: "Italian",
         type: "public",
         owner: "Brenda Soprano",
-        tags:["Fish","Lunch"]
+        tags:["Fish","Lunch"],
+        servings: "4",
     },
     {
         id: "3",
@@ -32,7 +56,8 @@ export const sample_recipes:Recipe[] = [
         prepTime: "45-60",
         type: "public",
         owner: "Julius Caesar",
-        tags:["Salad","Lunch"]
+        tags:["Salad","Lunch"],
+        servings: "2",
     },
     {
         id: "4",
@@ -43,7 +68,8 @@ export const sample_recipes:Recipe[] = [
         cousine: "German",
         type: "public",
         owner: "Jesse James West",
-        tags:["Soup","Dinner"]
+        tags:["Soup","Dinner"],
+        servings: "4",
     },
     {
         id: "5",
@@ -54,18 +80,20 @@ export const sample_recipes:Recipe[] = [
         cousine: "Greek",
         type: "public",
         owner: "Giannis Papagiannis",
-        tags:["Salad","Dinner"]
+        tags:["Salad","Dinner"],
+        servings: "4",
     },
     {
         id: "6",
         title: "Omelette Hashbrown Casserole",
-        description: "A diner breakfast upgrade that’s perfect for a filling meal any time of day.Those cubes of ham, shreds of cheese, and bits of bell pepper are a calling card for satisfaction. You know you have a fine meal in store, preferably with toast, hashbrowns, and a big cup of coffee at the ready.",
+        description: "A diner breakfast upgrade thats perfect for a filling meal any time of day.Those cubes of ham, shreds of cheese, and bits of bell pepper are a calling card for satisfaction. You know you have a fine meal in store, preferably with toast, hashbrowns, and a big cup of coffee at the ready.",
         imageUrl: "https://www.simplyrecipes.com/thmb/6OMPlSoywc0dfQVw2GW6qrLshfw=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/Simply-Recipes-Denver-Omelette-Casserole-LEAD-833bd80c6f124d069a74fd0789f6fc83.jpg",
         prepTime: "60-70",
         cousine: "American",
         type: "public",
         owner: "George Janko",
-        tags:["Breakfast"]
+        tags:["Breakfast"],
+        servings: "2",
     },
 
     {
@@ -76,7 +104,8 @@ export const sample_recipes:Recipe[] = [
         prepTime: "10",
         type: "public",
         owner: "Patrick Beverly",
-        tags:["Drink"]
+        tags:["Drink"],
+        servings: "2",
     },
 
     {
@@ -87,7 +116,8 @@ export const sample_recipes:Recipe[] = [
         prepTime: "10",
         type: "public",
         owner: "Anne Bush",
-        tags:["Dessert"]
+        tags:["Dessert"],
+        servings: "4",
     },
 
 ]

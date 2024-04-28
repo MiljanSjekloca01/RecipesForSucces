@@ -1,0 +1,40 @@
+<div class="container">
+    <div class="inner-container">
+        <div class="form-container">
+            <header>
+                <h2>LOGIN</h2>
+                <p>Unlock your inner chef!</p>
+                <p>Make your own recipes and share your feedback</p>
+            </header>
+            <form #f="ngForm">
+                <div class="input-container">
+                    <mat-icon>account_circle</mat-icon>
+                    <input type="text"
+                    required
+                    email
+                    placeholder="Email"
+                    >
+                </div>
+                <div class="input-container">
+                    <mat-icon>lock</mat-icon>
+                    <input type="password"
+                    required
+                    minlength="8"
+                    placeholder="Password"
+                    >
+                </div>
+                <span>Greske</span>
+                <div class="button-container">
+                    <button type="submit">Login Now</button>
+                    <button type="button" (click)="navigateBack()">Return To Recipes</button>
+                </div>
+                <button class="change-mode"
+                (click)="changeMode()"
+                >Create Your Account</button>
+            </form>
+        </div>
+        <div class="image-container">
+            <img src="https://pupcakesugar.com/wp-content/uploads/2023/09/Blog-Post-Recipe-Picture-Sweet-Potato-Peanut-Butter-Pupcakes-500x500.png" alt="Food-Image">
+        </div>
+    </div>
+</div>

@@ -10,6 +10,7 @@ import { FormsModule } from "@angular/forms";
 import { SearchBarComponent } from "./components/partials/searchBar/searchBar.component";
 import { NotFoundComponent } from "./components/partials/not-found/not-found.component";
 import { RecipeDetailComponent } from "./components/page/recipe-detail/recipe-detail.component";
+import { AuthComponent } from "./components/page/auth/auth.component";
 
 @NgModule({
     declarations:[
@@ -18,7 +19,8 @@ import { RecipeDetailComponent } from "./components/page/recipe-detail/recipe-de
         RecipesComponent,
         SearchBarComponent,
         NotFoundComponent,
-        RecipeDetailComponent
+        RecipeDetailComponent,
+        AuthComponent
     ],
     imports:[
         BrowserModule,

@@ -1,8 +1,8 @@
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
-import { AppComponent } from "./app.component";
 import { RecipesComponent } from "./components/page/recipes/recipes.component";
 import { RecipeDetailComponent } from "./components/page/recipe-detail/recipe-detail.component";
+import { AuthComponent } from "./components/page/auth/auth.component";
 
 
 const routes: Routes = [
@@ -10,6 +10,7 @@ const routes: Routes = [
     {path: "tag/:tag",component: RecipesComponent},
     {path: "search/:search",component: RecipesComponent},
     {path: "recipe/:id",component: RecipeDetailComponent},
+    {path: "auth/login",component: AuthComponent},
     {path: "**",component: RecipesComponent}
 ]
 

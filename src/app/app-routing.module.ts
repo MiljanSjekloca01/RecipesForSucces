@@ -11,7 +11,8 @@ const routes: Routes = [
     {path: "search/:search",component: RecipesComponent},
     {path: "recipe/:id",component: RecipeDetailComponent},
     {path: "auth/login",component: AuthComponent},
-    {path: "**",component: RecipesComponent}
+    {path: "auth/register",component: AuthComponent},
+    {path: "**",component: RecipesComponent},
 ]
 
 @NgModule({

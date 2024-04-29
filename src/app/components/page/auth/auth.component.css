@@ -22,7 +22,6 @@
     flex-direction: column;
     padding:2rem;
     min-width: 300px;
-    gap:1rem;
 }
 
 header{
@@ -44,7 +43,13 @@ header > p{
 }
 
 
+mat-icon{
+    width:2rem;
+}
+
+form > .user-register-container > .input-container,
 form > .input-container{
+    color:rgb(85, 2, 2);
     display:flex;
     padding:1rem 0rem 1rem 1rem;
     background-color: rgb(226, 212, 252);
@@ -54,7 +59,7 @@ form > .input-container{
 }
 
 input{
-    padding:0.5rem;
+    padding:0.3rem 0;
     border:none;
     outline:none;
     font-weight: 500;
@@ -108,4 +113,21 @@ span{
 button.change-mode{
     display:flex;
     margin:auto;
+}
+
+
+.error-container{
+    display:flex;
+    font-size:0.8rem;
+    flex-wrap: wrap;
+}
+
+.error-container > span {
+    color:darkred;
+    margin:0.3rem auto;
+}
+
+
+input:-webkit-autofill { 
+    -webkit-background-clip: text;
 }

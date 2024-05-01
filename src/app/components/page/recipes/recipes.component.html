@@ -4,7 +4,7 @@
 </app-not-found>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
 <div class="container">
-    <li *ngFor="let recipe of visibleRecipes">
+    <li *ngFor="let recipe of recipes.slice(0,recipesShownNumber)">
     <a routerLink="/recipe/{{recipe.id}}">
         <img [src]="recipe.imageUrl" [alt]="recipe.title">
         <p class="tags" *ngFor="let tag of recipe.tags">

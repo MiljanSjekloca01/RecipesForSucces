@@ -11,6 +11,7 @@ import { SearchBarComponent } from "./components/partials/searchBar/searchBar.co
 import { NotFoundComponent } from "./components/partials/not-found/not-found.component";
 import { RecipeDetailComponent } from "./components/page/recipe-detail/recipe-detail.component";
 import { AuthComponent } from "./components/page/auth/auth.component";
+import { HttpClientModule } from "@angular/common/http";
 
 @NgModule({
     declarations:[
@@ -20,13 +21,14 @@ import { AuthComponent } from "./components/page/auth/auth.component";
         SearchBarComponent,
         NotFoundComponent,
         RecipeDetailComponent,
-        AuthComponent
+        AuthComponent,
     ],
     imports:[
         BrowserModule,
         AppRoutingModule,
         FormsModule,
         AngularMaterialModule,
+        HttpClientModule
     ],
     providers:[
     provideAnimationsAsync()

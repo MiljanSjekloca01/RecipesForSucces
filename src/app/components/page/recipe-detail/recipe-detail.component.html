@@ -66,10 +66,10 @@
             </div>
         <div *ngIf="recipe.comments">
             <div *ngFor="let comment of recipe.comments.slice(0, 4)" class="comments">
+                <h4>{{comment.user}}</h4>
                 <div *ngIf="comment.rating">
                     <star-rating [starRating]="comment.rating"></star-rating>
                 </div>
-                <h4>{{comment.user}}</h4>
                 <p>{{comment.text}}</p>
                 <div class="helpfull">
                     <mat-icon class="likes" (click)="onLikeClicked(comment.id)">thumb_up</mat-icon><p>Helpfull({{ comment.likes }})</p>

@@ -25,7 +25,7 @@ export class RecipeDetailComponent implements OnInit{
   }
 
   ngOnInit(){
-  
+    console.log(this.recipe);
   }
 
   onSubmit(rating: number,comment: string){
@@ -36,6 +36,10 @@ export class RecipeDetailComponent implements OnInit{
     }else{
       console.log("Samo komentar");
     }
+
+    //doraditi
+    this.clickedStarIndex = 0;
+    this.comment = "";
   }
   
   onStarClicked(star:number){

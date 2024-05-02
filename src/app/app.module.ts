@@ -12,6 +12,7 @@ import { NotFoundComponent } from "./components/partials/not-found/not-found.com
 import { RecipeDetailComponent } from "./components/page/recipe-detail/recipe-detail.component";
 import { AuthComponent } from "./components/page/auth/auth.component";
 import { HttpClientModule } from "@angular/common/http";
+import { StarRatingComponent } from "./components/partials/star-rating/star-rating.component";
 
 @NgModule({
     declarations:[
@@ -22,6 +23,7 @@ import { HttpClientModule } from "@angular/common/http";
         NotFoundComponent,
         RecipeDetailComponent,
         AuthComponent,
+        StarRatingComponent
     ],
     imports:[
         BrowserModule,

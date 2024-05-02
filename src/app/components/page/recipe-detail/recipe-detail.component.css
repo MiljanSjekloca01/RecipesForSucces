@@ -183,3 +183,37 @@ button:hover{
     max-width:400px;
 }
 
+
+div.rating{
+    display:flex;
+    align-items: center;
+    gap:0.5rem;
+    margin-bottom:0.5rem;
+}
+
+div.rating > span {
+    font-weight: 500;
+}
+
+div.rating > mat-icon{
+    cursor: pointer;
+}
+
+mat-icon.filled{
+    color: darkred;
+}
+
+mat-icon.likes{
+    font-size: 1.2rem;
+}
+
+mat-icon.likes:hover{
+    color: darkred;
+    cursor:pointer;
+}
+
+.helpfull{
+    display:flex;
+    justify-content: start;
+    margin:0.5rem;
+}

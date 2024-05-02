@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, numberAttribute } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { RecipeService } from '../../../services/recipe.service';
 import { Recipe } from '../../../shared/models/recipes.model';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-recipe-detail',
@@ -10,21 +11,46 @@ import { Recipe } from '../../../shared/models/recipes.model';
 })
 export class RecipeDetailComponent implements OnInit{
 
-  recipeId: string;
   recipe: Recipe;
+  clickedStarIndex: number;
+  ratingText: string;
+  comment: string = "";
 
   constructor(activedRoute: ActivatedRoute,private recipeService: RecipeService){
     activedRoute.params.subscribe( param => {
       if(param.id){
-        this.recipeId = param.id
+        this.recipe = this.recipeService.getRecipeById(param.id);
       }
     })
   }
 
   ngOnInit(){
-    this.recipe = this.recipeService.getRecipeById(this.recipeId);
-    console.log(this.recipe);
+  
   }
+
+  onSubmit(rating: number,comment: string){
+    if(rating && comment){
+      this.recipeService.createComment(this.recipe.id,rating,comment);
+    }else if(rating && !comment){
+      console.log("Samo rating");
+    }else{
+      console.log("Samo komentar");
+    }
+  }
+  
+  onStarClicked(star:number){
+    this.clickedStarIndex = star;
+   const ratingTexts = {
+    1: "Bad recipe !",
+    2: "Didn't like it",
+    3: "It was good",
+    4: "Great recipe",
+    5: "Loved it !"
+  };
+  this.ratingText = ratingTexts[star];
+  }
+
+
 
 
 

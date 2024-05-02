@@ -1,9 +1,10 @@
 import { Injectable } from "@angular/core";
-import { Observable, Subject, catchError, map, throwError } from "rxjs";
+import { Observable, Subject, catchError, map, sample, throwError } from "rxjs";
 import { Recipe } from "../shared/models/recipes.model";
 import { sample_recipes } from "../data";
 import { HttpClient } from "@angular/common/http";
-import { environment } from "../../environments/environment"
+import { environment } from "../../environments/environment";
+import { Comment } from "../shared/models/comment.model";
 
 @Injectable({providedIn:"root"})
 export class RecipeService {
@@ -23,6 +24,13 @@ export class RecipeService {
         })
     }
 
+    //For testing data
+    storeRecipes(){
+        sample_recipes.forEach(recipe => 
+            this.http.post<Recipe[]>("https://recipesforsucces-cdfa9-default-rtdb.europe-west1.firebasedatabase.app/recipes.json",recipe).subscribe( responseData => {
+        }))
+    }
+
     getRecipesFromDatabase(): Observable<Recipe[]>{
         return this.http.get<{ [key: string]: Recipe}>(environment.FIREBASE_RECIPES_URL)
         .pipe(
@@ -30,7 +38,7 @@ export class RecipeService {
                 const recipesArray: Recipe[] = [];
                 for(const key in responseData){
                     if(responseData.hasOwnProperty(key))
-                        recipesArray.push({...responseData[key]})
+                        recipesArray.push({...responseData[key],id: key})
                 }
                 this.recipes = recipesArray; 
                 return recipesArray
@@ -46,15 +54,11 @@ export class RecipeService {
 
 
     getRecipesByTag(tagLink: string){
-        console.log("IM IN ")
         this.getRecipesFromDatabase().subscribe(
             data => {
-                console.log("IM IN DATA");
                 this.recipes = data
-                console.log(this.recipes);
             }
         )
-        console.log(this.recipes);
         return this.recipes.filter( recipe => {
             return recipe.tags.some( tag => tag.toLowerCase().includes(tagLink.toLowerCase()))
     })}
@@ -75,4 +79,19 @@ export class RecipeService {
         return this.recipes.find( recipe => recipe.id === id)
     }
 
+    createComment(id: string,rating: number,commentText:string){
+       
+        this.http.post<Comment>(`https://recipesforsucces-cdfa9-default-rtdb.europe-west1.firebasedatabase.app/recipes/${id}/comments.json`,
+        {
+            user: "Murat",
+            text: commentText,
+            rating: rating
+        }).subscribe( responseData => { 
+            console.log(responseData)
+            const recipeIndex = this.recipes.findIndex(recipe => recipe.id === id);
+            if (recipeIndex !== -1) {
+                this.recipes[recipeIndex].comments.push({user: "Murat",text:commentText,rating: rating});
+            }
+        })
+    }
 }

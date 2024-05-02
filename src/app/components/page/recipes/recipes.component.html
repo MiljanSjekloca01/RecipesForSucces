@@ -8,7 +8,11 @@
     <a routerLink="/recipe/{{recipe.id}}">
         <img [src]="recipe.imageUrl" [alt]="recipe.title">
         <p class="tags" *ngFor="let tag of recipe.tags">
-            <mat-icon class="material-symbols-outlined">label_imporant</mat-icon>{{ tag }}</p>
+            <mat-icon class="material-symbols-outlined">label_imporant</mat-icon>{{ tag }}
+        </p>
+        <div *ngIf="recipe.ratings">
+            <star-rating [starRating]="calculateAverageRating(recipe.ratings)"></star-rating>
+        </div>
         <h2> {{ recipe.title }}</h2>
     </a></li>
 </div>
@@ -18,3 +22,5 @@
     class="button-end" 
     (click)="onShowMoreRecipes()">Show More</button>
 </div>
+
+<button type="button" (click)="storeRecipes()">Store recipes on Firebase</button>

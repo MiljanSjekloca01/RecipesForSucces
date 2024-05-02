@@ -53,3 +53,8 @@ img{
 .remove-button{
     display:none;
 }
+
+mat-icon.filled {
+    color: darkred;
+  }
+  

@@ -2,7 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { RecipeService } from '../../../services/recipe.service';
 import { Recipe } from '../../../shared/models/recipes.model';
 import { ActivatedRoute } from '@angular/router';
-import { Subscription, take } from 'rxjs';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-recipes',
@@ -15,7 +15,7 @@ export class RecipesComponent implements OnInit,OnDestroy{
 
   recipes: Recipe[] = [];
   recipesShownNumber: number = 4;
-  routeSubscription: Subscription
+  routeSubscription: Subscription;
 
   ngOnInit(){
 
@@ -38,5 +38,18 @@ export class RecipesComponent implements OnInit,OnDestroy{
   ngOnDestroy(): void {
     this.routeSubscription.unsubscribe();
   }
+
+  storeRecipes(){
+    this.recipeService.storeRecipes();
+  }
+
+  calculateAverageRating(ratings: number[]){
+    console.log("lets see");
+    if(ratings.length === 1){
+      return ratings[0];
+    }
+    return Math.round((ratings.reduce( (acc,current) => acc + current,0)) / ratings.length);
+  }
+
 
 }

@@ -14,12 +14,10 @@ export class Recipe{
     ingredients?: string[];
     steps?:string[]
     comments?: Comment[];
-    //ranking/stars:
+    ratings?: number[];
     //userId?: number | string;
-    //ingredients:
     //nutrition: Maybe
     //reviews:
-    //publishedOn
-    //Servings - za kolko osoba
+    //publishedOnDate
 }
 

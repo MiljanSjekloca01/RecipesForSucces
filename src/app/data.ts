@@ -35,6 +35,7 @@ export const sample_recipes:Recipe[] = [
            { user: "Draymond Green", text: "Followed exactly and it came out so delicious! Thank you so much for a healthy, eclectic, flavorful meal!!"},
            { user: "Stephan Tries", text: "Great meal !"},
         ],
+        ratings:[5,3,4,5]
     },
     {
         id: "2",
@@ -47,6 +48,7 @@ export const sample_recipes:Recipe[] = [
         owner: "Brenda Soprano",
         tags:["Fish","Lunch"],
         servings: "4",
+        ratings:[5,5,4,5],
     },
     {
         id: "3",
@@ -58,6 +60,7 @@ export const sample_recipes:Recipe[] = [
         owner: "Julius Caesar",
         tags:["Salad","Lunch"],
         servings: "2",
+        ratings:[1,2,4,3,3],
     },
     {
         id: "4",
@@ -70,6 +73,7 @@ export const sample_recipes:Recipe[] = [
         owner: "Jesse James West",
         tags:["Soup","Dinner"],
         servings: "4",
+        ratings:[3,3,3,3],
     },
     {
         id: "5",
@@ -82,6 +86,8 @@ export const sample_recipes:Recipe[] = [
         owner: "Giannis Papagiannis",
         tags:["Salad","Dinner"],
         servings: "4",
+        ratings:[5,5,5,4],
+
     },
     {
         id: "6",
@@ -94,6 +100,7 @@ export const sample_recipes:Recipe[] = [
         owner: "George Janko",
         tags:["Breakfast"],
         servings: "2",
+        ratings:[5,1,1,1],
     },
 
     {
@@ -106,6 +113,7 @@ export const sample_recipes:Recipe[] = [
         owner: "Patrick Beverly",
         tags:["Drink"],
         servings: "2",
+        ratings:[4],
     },
 
     {
@@ -118,6 +126,7 @@ export const sample_recipes:Recipe[] = [
         owner: "Anne Bush",
         tags:["Dessert"],
         servings: "4",
+        ratings:[1,2,3,4,5,5],
     },
 
 ]

@@ -4,7 +4,6 @@ import { Recipe } from "../shared/models/recipes.model";
 import { sample_recipes } from "../data";
 import { HttpClient } from "@angular/common/http";
 import { environment } from "../../environments/environment";
-import { Comment } from "../shared/models/comment.model";
 
 @Injectable({providedIn:"root"})
 export class RecipeService {
@@ -53,9 +52,15 @@ getRecipesFromDatabase(): Observable<Recipe[]> {
           for (const id in responseData) {
             if (responseData.hasOwnProperty(id)) {
               const recipe: Recipe = { ...responseData[id], id: id };
-              if (recipe.comments) {
-                recipe.comments = Object.entries(recipe.comments).map(([commentKey, comment]) => ({ ...comment, id: commentKey }));
-              }
+              recipe.ratings = [];
+              if (recipe.reviews) {
+                recipe.reviews = Object.entries(recipe.reviews).map(([reviewsId,review]) => {
+                    if(review.rating) recipe.ratings.push(review.rating);
+                    
+                    return {...review,id: reviewsId}
+                })
+              }else{ recipe.reviews = []; }
+        
               recipesArray.push(recipe);
             }
           }
@@ -69,17 +74,20 @@ getRecipesFromDatabase(): Observable<Recipe[]> {
         })
       );
   }
-
-    createComment(id: string,rating: number,commentText:string){
-        this.http.post<{commentId: string}>(`https://recipesforsucces-cdfa9-default-rtdb.europe-west1.firebasedatabase.app/recipes/${id}/comments.json`,
-        { user: "Murat", text: commentText, rating: rating}).subscribe( responseData => { 
+    // Izmjenjati u createReviw
+    createReviewWithCommentAndRating(id: string,rating: number,commentText:string){
+        this.http.post<{reviewId: string}>(`https://recipesforsucces-cdfa9-default-rtdb.europe-west1.firebasedatabase.app/recipes/${id}/reviews.json`,
+        { user_id: "Murat", commentText: commentText, rating: rating}).subscribe( responseData => { 
             const recipeIndex = this.recipes.findIndex(recipe => recipe.id === id);
             if (recipeIndex !== -1) {
-                this.recipes[recipeIndex].comments.push({user: "Murat",text:commentText,rating: rating,id: responseData.commentId});
+                this.recipes[recipeIndex].reviews.push({user_id: "Murat",commentText:commentText,rating: rating,id: responseData.reviewId});
             }
         })
     }
 
+    createReviewWithRating(id:string,rating: number){
+
+    }
 
     getRecipesByTag(tagLink: string){
         this.getRecipesFromDatabase().subscribe(

@@ -50,12 +50,15 @@
     <div class="review">
         <h3>{{recipe.owner}}</h3>
         <h3 id="title">{{recipe.title}}</h3>
-        <h4>Your rating</h4>
-        <div class="rating">
-            <mat-icon *ngFor="let star of [1, 2, 3, 4, 5]" [ngClass]="{ 'filled': star <= clickedStarIndex }"
-            (click)="onStarClicked(star)">grade</mat-icon>
-            <span *ngIf="clickedStarIndex >= 1">{{ ratingText }}</span>
+        <div *ngIf="!userHaveRated">
+            <h4>Your rating</h4>
+            <div class="rating">
+                <mat-icon *ngFor="let star of [1, 2, 3, 4, 5]" [ngClass]="{ 'filled': star <= clickedStarIndex }"
+                (click)="onStarClicked(star)">grade</mat-icon>
+                <span *ngIf="clickedStarIndex >= 1">{{ ratingText }}</span>
+            </div>
         </div>
+        
         <!-- to be done -->
         <h4>Your review</h4>
             <textarea cols="65" rows="4" maxlength="250" placeholder="What did you think about this recipe?"
@@ -64,15 +67,19 @@
                 <button type="button" (click)="comment = '';clickedStarIndex = 0">Cancel</button> 
                 <button type="submit" [disabled]="!clickedStarIndex && !comment" (click)="onSubmit(clickedStarIndex,comment)">Submit</button>
             </div>
-        <div *ngIf="recipe.comments">
-            <div *ngFor="let comment of recipe.comments.slice(0, 4)" class="comments">
-                <h4>{{comment.user}}</h4>
-                <div *ngIf="comment.rating">
-                    <star-rating [starRating]="comment.rating"></star-rating>
-                </div>
-                <p>{{comment.text}}</p>
-                <div class="helpfull">
-                    <mat-icon class="likes" (click)="onLikeClicked(comment.id)">thumb_up</mat-icon><p>Helpfull({{ comment.likes }})</p>
+        <div *ngIf="recipe.reviews" class="review-container">
+            <div *ngFor="let review of recipe.reviews.slice(0, 6)" class="comments">
+                <div *ngIf="review.commentText">
+                    <div class="comments-header">
+                        <h4>{{review.user_id}}</h4>
+                        <div *ngIf="review.rating">
+                            <star-rating  [starRating]="review.rating"></star-rating>
+                        </div>
+                    </div>
+                    <p>{{review.commentText}}</p>
+                    <div class="likes">
+                        <mat-icon class="thump_up" (click)="onLikeClicked(review.id)">thumb_up</mat-icon><p>{{ review.likes }}</p>
+                    </div>
                 </div>
             </div>
             <button type="button">Load more comments</button>

@@ -2,7 +2,7 @@ import { Component, OnInit, numberAttribute } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { RecipeService } from '../../../services/recipe.service';
 import { Recipe } from '../../../shared/models/recipes.model';
-import { NgForm } from '@angular/forms';
+
 
 @Component({
   selector: 'app-recipe-detail',
@@ -15,6 +15,8 @@ export class RecipeDetailComponent implements OnInit{
   clickedStarIndex: number;
   ratingText: string;
   comment: string = "";
+  userHaveRated: boolean;
+  currentUserId="Murat";
 
   constructor(activedRoute: ActivatedRoute,private recipeService: RecipeService){
     activedRoute.params.subscribe( param => {
@@ -25,14 +27,17 @@ export class RecipeDetailComponent implements OnInit{
   }
 
   ngOnInit(){
-    console.log(this.recipe);
+    this.userHaveRated = this.findIfUserHaveRatedRecipe();
   }
 
   onSubmit(rating: number,comment: string){
     if(rating && comment){
-      this.recipeService.createComment(this.recipe.id,rating,comment);
+      this.recipeService.createReviewWithCommentAndRating(this.recipe.id,rating,comment);
+      this.userHaveRated = true;
     }else if(rating && !comment){
+      this.recipeService.createReviewWithRating(this.recipe.id,rating);
       console.log("Samo rating");
+      this.userHaveRated = true;
     }else{
       console.log("Samo komentar");
     }
@@ -40,6 +45,7 @@ export class RecipeDetailComponent implements OnInit{
     //doraditi
     this.clickedStarIndex = 0;
     this.comment = "";
+
   }
   
   onStarClicked(star:number){
@@ -55,7 +61,15 @@ export class RecipeDetailComponent implements OnInit{
   }
 
 
-
+  findIfUserHaveRatedRecipe(){
+    if(this.currentUserId && this.recipe.reviews){
+      return this.recipe.reviews.some(review => {
+        console.log("Sad radim nesto");
+       return review.rating && review.user_id === this.currentUserId
+      })
+    }
+    return false;
+  }
 
 
 }

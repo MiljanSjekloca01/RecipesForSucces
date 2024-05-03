@@ -1,4 +1,4 @@
-import { Comment } from "./comment.model";
+import { Review } from "./review.model";
 
 export class Recipe{
     id!: string;
@@ -13,7 +13,7 @@ export class Recipe{
     servings!: string;
     ingredients?: string[];
     steps?:string[]
-    comments?: Comment[];
+    reviews?: Review[];
     ratings?: number[];
     //userId?: number | string;
     //nutrition: Maybe

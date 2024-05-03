@@ -30,12 +30,12 @@ export const sample_recipes:Recipe[] = [
             "Remove from heat, and slowly add cream, whisking constantly and vigorously. Return chicken to skillet, and spoon sauce over chicken. Garnish with quartered lemon slices before serving.",
             
         ],
-        comments:[
-           { user: "Alice Keys",text: "Amazing,i just made this recipe myself and im enjoying it"},
-           { user: "Draymond Green", text: "Followed exactly and it came out so delicious! Thank you so much for a healthy, eclectic, flavorful meal!!"},
-           { user: "Stephan Tries", text: "Great meal !"},
+        reviews:[
+           { user_id: "Alice Keys",commentText: "Amazing,i just made this recipe myself and im enjoying it",rating: 1},
+           { user_id: "Draymond Green", commentText: "Followed exactly and it came out so delicious! Thank you so much for a healthy, eclectic, flavorful meal!!",rating: 1},
+           { user_id: "Stephan Tries", commentText: "Great meal !",rating: 1},
         ],
-        ratings:[5,3,4,5]
+        ratings:[],
     },
     {
         id: "2",
@@ -48,7 +48,7 @@ export const sample_recipes:Recipe[] = [
         owner: "Brenda Soprano",
         tags:["Fish","Lunch"],
         servings: "4",
-        ratings:[5,5,4,5],
+        ratings:[],
     },
     {
         id: "3",
@@ -60,7 +60,7 @@ export const sample_recipes:Recipe[] = [
         owner: "Julius Caesar",
         tags:["Salad","Lunch"],
         servings: "2",
-        ratings:[1,2,4,3,3],
+        ratings:[],
     },
     {
         id: "4",
@@ -73,7 +73,7 @@ export const sample_recipes:Recipe[] = [
         owner: "Jesse James West",
         tags:["Soup","Dinner"],
         servings: "4",
-        ratings:[3,3,3,3],
+        ratings:[],
     },
     {
         id: "5",
@@ -86,7 +86,7 @@ export const sample_recipes:Recipe[] = [
         owner: "Giannis Papagiannis",
         tags:["Salad","Dinner"],
         servings: "4",
-        ratings:[5,5,5,4],
+        ratings:[],
 
     },
     {
@@ -100,7 +100,7 @@ export const sample_recipes:Recipe[] = [
         owner: "George Janko",
         tags:["Breakfast"],
         servings: "2",
-        ratings:[5,1,1,1],
+        ratings:[],
     },
 
     {
@@ -113,20 +113,20 @@ export const sample_recipes:Recipe[] = [
         owner: "Patrick Beverly",
         tags:["Drink"],
         servings: "2",
-        ratings:[4],
+        ratings:[],
     },
 
     {
         id: "8",
         title: "Pumpkin Mousse",
-        description: "his frozen fruit smoothie is fast, simple, nutritious, and tasty with extra protein from the Greek yogurt. It’s a great on-the-go breakfast or afternoon snack. I always include a banana, but choose your favorite frozen fruits such as strawberries, cherries, pineapple, raspberries, and blueberries.",
+        description: "This frozen fruit smoothie is fast, simple, nutritious, and tasty with extra protein from the Greek yogurt. It’s a great on-the-go breakfast or afternoon snack. I always include a banana, but choose your favorite frozen fruits such as strawberries, cherries, pineapple, raspberries, and blueberries.",
         imageUrl: "https://www.simplyrecipes.com/thmb/_FYO_3oiizJXONdWwo1cyhfOfJ8=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/Simply-Recipes-Pumpkin-Mousse-LEAD-4-bd1ba06687954b509cdcbad55e4e4d3f.jpg",
         prepTime: "10",
         type: "public",
         owner: "Anne Bush",
         tags:["Dessert"],
         servings: "4",
-        ratings:[1,2,3,4,5,5],
+        ratings:[5],
     },
 
 ]

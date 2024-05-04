@@ -36,13 +36,11 @@ export class RecipeDetailComponent implements OnInit{
       this.userHaveRated = true;
     }else if(rating && !comment){
       this.recipeService.createReviewWithRating(this.recipe.id,rating);
-      console.log("Samo rating");
       this.userHaveRated = true;
     }else{
-      console.log("Samo komentar");
+      this.recipeService.createReviewWithComment(this.recipe.id,comment);
     }
-
-    //doraditi
+    
     this.clickedStarIndex = 0;
     this.comment = "";
 
@@ -64,7 +62,6 @@ export class RecipeDetailComponent implements OnInit{
   findIfUserHaveRatedRecipe(){
     if(this.currentUserId && this.recipe.reviews){
       return this.recipe.reviews.some(review => {
-        console.log("Sad radim nesto");
        return review.rating && review.user_id === this.currentUserId
       })
     }

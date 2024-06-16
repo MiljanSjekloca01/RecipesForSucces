@@ -26,6 +26,7 @@ button{
 
 button:hover{
     box-shadow: none;
+    cursor: pointer;
 }
 
 p{

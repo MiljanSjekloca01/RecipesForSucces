@@ -13,6 +13,8 @@ import { RecipeDetailComponent } from "./components/page/recipe-detail/recipe-de
 import { AuthComponent } from "./components/page/auth/auth.component";
 import { HttpClientModule } from "@angular/common/http";
 import { StarRatingComponent } from "./components/partials/star-rating/star-rating.component";
+import { FooterComponent } from "./components/partials/footer/footer.component";
+import { PageTitleComponent } from "./components/partials/page-title/page-title.component";
 
 @NgModule({
     declarations:[
@@ -23,7 +25,9 @@ import { StarRatingComponent } from "./components/partials/star-rating/star-rati
         NotFoundComponent,
         RecipeDetailComponent,
         AuthComponent,
-        StarRatingComponent
+        StarRatingComponent,
+        FooterComponent,
+        PageTitleComponent
     ],
     imports:[
         BrowserModule,

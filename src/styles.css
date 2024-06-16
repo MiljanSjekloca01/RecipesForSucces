@@ -7,12 +7,12 @@
 
 html{
     font-size: 16px;
-    display:flex;
+    display: flex;
     flex-direction: column;
     /*Jersey25 Quicksand  font-family: "Sedan",sans-serif;*/
 }
 
-body{display:table;}
+body{display:table; height:100%;}
 
 a{
     color:black;
@@ -24,5 +24,5 @@ li{
 }
 
 
-html, body { height: 100%; }
+html, body { height: 100%; min-height: 100%;}
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

@@ -85,31 +85,33 @@ export class RecipeService {
     // Recipes Details Part - Review
 
     createReviewWithCommentAndRating(id: string,rating: number,commentText:string){
+        console.log("Podatci: ",id,rating,commentText)
         this.http.post<{reviewId: string}>(`https://recipesforsucces-cdfa9-default-rtdb.europe-west1.firebasedatabase.app/recipes/${id}/reviews.json`,
-        { user_id: "Murat", commentText: commentText, rating: rating}).subscribe( responseData => { 
+        { user_id: "UserForPractice", commentText: commentText, rating: rating}).subscribe( responseData => { 
             const recipeIndex = this.recipes.findIndex(recipe => recipe.id === id);
+            console.log(recipeIndex)
             if (recipeIndex !== -1) {
-                this.recipes[recipeIndex].reviews.push({user_id: "Murat",commentText:commentText,rating: rating,id: responseData.reviewId});
+                this.recipes[recipeIndex].reviews.push({user_id: "UserForPractice",commentText:commentText,rating: rating,id: responseData.reviewId});
             }
         })
     }
 
     createReviewWithRating(id:string,rating: number){
         this.http.post<{reviewId: string}>(`https://recipesforsucces-cdfa9-default-rtdb.europe-west1.firebasedatabase.app/recipes/${id}/reviews.json`,
-        { user_id: "Murat", rating: rating}).subscribe( responseData => { 
+        { user_id: "UserForPractice", rating: rating}).subscribe( responseData => { 
             const recipeIndex = this.recipes.findIndex(recipe => recipe.id === id);
             if (recipeIndex !== -1) {
-                this.recipes[recipeIndex].reviews.push({user_id: "Murat",rating: rating,id: responseData.reviewId});
+                this.recipes[recipeIndex].reviews.push({user_id: "UserForPractice",rating: rating,id: responseData.reviewId});
             }
         })
     }
 
     createReviewWithComment(id:string,commentText: string){
         this.http.post<{reviewId: string}>(`https://recipesforsucces-cdfa9-default-rtdb.europe-west1.firebasedatabase.app/recipes/${id}/reviews.json`,
-        { user_id: "Murat", commentText: commentText}).subscribe( responseData => { 
+        { user_id: "UserForPractice", commentText: commentText}).subscribe( responseData => { 
             const recipeIndex = this.recipes.findIndex(recipe => recipe.id === id);
             if (recipeIndex !== -1) {
-                this.recipes[recipeIndex].reviews.push({user_id: "Murat",commentText: commentText,id: responseData.reviewId});
+                this.recipes[recipeIndex].reviews.push({user_id: "UserForPractice",commentText: commentText,id: responseData.reviewId});
             }
         })
     }

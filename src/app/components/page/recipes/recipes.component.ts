@@ -16,15 +16,19 @@ export class RecipesComponent implements OnInit,OnDestroy{
   recipes: Recipe[] = [];
   recipesShownNumber: number = 4;
   routeSubscription: Subscription;
+  pageTitle = "All";
 
   ngOnInit(){
 
     this.routeSubscription = this.activeRoute.params.subscribe( param => {
       this.recipesShownNumber = 4;
       if(param.tag){
+        this.pageTitle = param.tag
         this.recipes = this.recipeService.getRecipesByTag(param.tag)
       }else if(param.search || param.search === ""){
-        this.recipes = this.recipeService.getRecipesBySearch(param.search)    
+        this.recipes = this.recipeService.getRecipesBySearch(param.search)
+        if(this.recipes.length) this.pageTitle = "Results for " + param.search
+        else this.pageTitle = "No"
       }else{
         this.recipes = this.recipeService.getRecipes();
       }
@@ -44,7 +48,6 @@ export class RecipesComponent implements OnInit,OnDestroy{
   }
 
   calculateAverageRating(ratings: number[]){
-    console.log("lets see");
     if(ratings.length === 1){
       return ratings[0];
     }

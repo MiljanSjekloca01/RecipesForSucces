@@ -7,7 +7,7 @@
             Recipes
             <mat-icon>keyboard_double_arrow_right</mat-icon>
         </a>
-        <a *ngFor="let tag of recipe.tags" routerLink="/tag/{{tag}}">
+        <a *ngFor="let tag of recipe.tags" routerLink="/tag/{{tag.toLowerCase()}}">
             <mat-icon>keyboard_double_arrow_left</mat-icon>
             {{ tag }}
             <mat-icon>keyboard_double_arrow_right</mat-icon>
@@ -47,6 +47,7 @@
             </div>
         </div>
     </div>
+    <p class="page-divider">Comments And Ratings</p>
     <div class="review">
         <h3>{{recipe.owner}}</h3>
         <h3 id="title">{{recipe.title}}</h3>
@@ -69,7 +70,7 @@
             </div>
         <div *ngIf="recipe.reviews" class="review-container">
             <div *ngFor="let review of recipe.reviews.slice(0, 6)" class="comments">
-                <div *ngIf="review.commentText">
+                <div *ngIf="review.commentText" class="comment">
                     <div class="comments-header">
                         <h4>{{review.user_id}}</h4>
                         <div *ngIf="review.rating">

@@ -1,0 +1,53 @@
+footer{
+    display:flex;
+    flex-direction: column;
+    padding:1rem;
+    margin-top:2rem;
+    background-color: black;
+    color:white;
+    align-items: center;
+    gap:0.5rem 0rem;
+}
+
+p{
+    line-height: 1.5rem;
+}
+
+.socials{
+    display:flex;
+    gap:1.5rem;
+    align-items: center;
+    margin-right: 2rem;
+}
+
+.socials > a > svg{
+    filter: invert(100%);
+}
+
+.socials > a > svg:hover {
+    opacity:0.7;
+}
+
+.credentials{
+    display:flex;
+    flex-wrap: wrap;
+    width:100%;
+    justify-content: space-around;
+}
+
+
+.credentials > div {
+    display:flex;
+    align-items:center;
+    gap:0.5rem;
+}
+
+.credentials > div > a {
+    color:white;
+    text-decoration: underline;
+    text-decoration-line: line-through;
+}
+
+.credentials > div > a:hover{
+    text-decoration: none;
+}

@@ -1,8 +1,9 @@
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
 <app-header></app-header>
 <app-not-found
 [visible]="recipes.length === 0">
 </app-not-found>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+<page-title [title]="pageTitle"></page-title>
 <div class="container">
     <li *ngFor="let recipe of recipes.slice(0,recipesShownNumber)">
     <a routerLink="/recipe/{{recipe.id}}">
@@ -24,3 +25,7 @@
 </div>
 
 <button type="button" (click)="storeRecipes()">Store recipes on Firebase</button>
+
+
+<app-footer></app-footer>
+

@@ -16,7 +16,7 @@ export class RecipeDetailComponent implements OnInit{
   ratingText: string;
   comment: string = "";
   userHaveRated: boolean;
-  currentUserId="Murat";
+  currentUserId="UserForPractice";
 
   constructor(activedRoute: ActivatedRoute,private recipeService: RecipeService){
     activedRoute.params.subscribe( param => {
@@ -27,6 +27,7 @@ export class RecipeDetailComponent implements OnInit{
   }
 
   ngOnInit(){
+    console.log(this.recipe)
     this.userHaveRated = this.findIfUserHaveRatedRecipe();
   }
 
@@ -66,6 +67,18 @@ export class RecipeDetailComponent implements OnInit{
       })
     }
     return false;
+  }
+
+  findIfRecipeHasCommentReview(){
+    if(this.recipe.reviews){
+      this.recipe.reviews.forEach(review => {
+        if(review.commentText){
+          return true;
+        }
+      })
+    }else{
+      return false;
+    }
   }
 
 

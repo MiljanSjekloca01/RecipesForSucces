@@ -2,13 +2,13 @@
 .container{
     padding:1rem 0rem;
     display:grid;
-    grid-template-columns: repeat(auto-fit,minmax(300px,auto));
+    grid-template-columns: repeat(auto-fit,minmax(350px,auto));
     gap:2rem;
 }
 
 .container > li {
   width:300px;
-  margin:auto
+  margin:auto;
 }
 
 .container > li:hover > a > img {
@@ -26,8 +26,8 @@
 img{
     border-radius:10%;
     width:100%;
-    min-height: 200px;
-    max-height:250px;
+    min-height: 230px;
+    max-height: 250px;
 }
 
 .button-container{
@@ -55,6 +55,5 @@ img{
 }
 
 mat-icon.filled {
-    color: darkred;
-  }
-  
+    color: #8b0000;
+}

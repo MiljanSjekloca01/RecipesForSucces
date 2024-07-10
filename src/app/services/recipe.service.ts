@@ -4,6 +4,7 @@ import { Recipe } from "../shared/models/recipes.model";
 import { sample_recipes } from "../data";
 import { HttpClient } from "@angular/common/http";
 import { environment } from "../../environments/environment";
+import { Review } from "../shared/models/review.model";
 
 @Injectable({providedIn:"root"})
 export class RecipeService {
@@ -82,38 +83,24 @@ export class RecipeService {
     }
 
 
-    // Recipes Details Part - Review
+    createReview(id: string, rating: number,commentText: string){
+        const reviewData: Review = { user_id: "UserForPractice"}
+        if(rating) reviewData.rating = rating;
+        if(commentText) reviewData.commentText = commentText;
 
-    createReviewWithCommentAndRating(id: string,rating: number,commentText:string){
-        console.log("Podatci: ",id,rating,commentText)
-        this.http.post<{reviewId: string}>(`https://recipesforsucces-cdfa9-default-rtdb.europe-west1.firebasedatabase.app/recipes/${id}/reviews.json`,
-        { user_id: "UserForPractice", commentText: commentText, rating: rating}).subscribe( responseData => { 
-            const recipeIndex = this.recipes.findIndex(recipe => recipe.id === id);
-            console.log(recipeIndex)
-            if (recipeIndex !== -1) {
-                this.recipes[recipeIndex].reviews.push({user_id: "UserForPractice",commentText:commentText,rating: rating,id: responseData.reviewId});
-            }
-        })
-    }
-
-    createReviewWithRating(id:string,rating: number){
-        this.http.post<{reviewId: string}>(`https://recipesforsucces-cdfa9-default-rtdb.europe-west1.firebasedatabase.app/recipes/${id}/reviews.json`,
-        { user_id: "UserForPractice", rating: rating}).subscribe( responseData => { 
-            const recipeIndex = this.recipes.findIndex(recipe => recipe.id === id);
-            if (recipeIndex !== -1) {
-                this.recipes[recipeIndex].reviews.push({user_id: "UserForPractice",rating: rating,id: responseData.reviewId});
-            }
-        })
-    }
-
-    createReviewWithComment(id:string,commentText: string){
-        this.http.post<{reviewId: string}>(`https://recipesforsucces-cdfa9-default-rtdb.europe-west1.firebasedatabase.app/recipes/${id}/reviews.json`,
-        { user_id: "UserForPractice", commentText: commentText}).subscribe( responseData => { 
-            const recipeIndex = this.recipes.findIndex(recipe => recipe.id === id);
-            if (recipeIndex !== -1) {
-                this.recipes[recipeIndex].reviews.push({user_id: "UserForPractice",commentText: commentText,id: responseData.reviewId});
-            }
-        })
+        if(rating || commentText){
+            this.http.post<{reviewId: string}>(`https://recipesforsucces-cdfa9-default-rtdb.europe-west1.firebasedatabase.app/recipes/${id}/reviews.json`,
+            reviewData).subscribe( responseData => {
+                const recipeIndex = this.recipes.findIndex(recipe => recipe.id === id);
+                console.log("Komentar",reviewData.commentText)
+                console.log("Rating",reviewData.rating)
+                if( recipeIndex !== -1){
+                    console.log("PROSAO SAM");
+                    reviewData.id = responseData.reviewId
+                    this.recipes[recipeIndex].reviews.push(reviewData)
+                }
+            })
+        }
     }
 
 }

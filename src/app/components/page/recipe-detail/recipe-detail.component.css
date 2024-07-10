@@ -164,6 +164,7 @@
 
 .review > h3#title{
     font-size:2rem;
+    margin-bottom: 0.7rem;
 }
 
 .review > p {
@@ -212,15 +213,15 @@ mat-icon.thump_up:hover{
     cursor:pointer;
 }
 
-.comments{
-    padding:0.5rem;
-    margin:0.5rem;
-}
 
 .comments > div > p {
     max-width:400px;
 }
 
+.comment{
+    padding:0.5rem;
+    margin:0.5rem;
+}
 
 .comments-header{
     display:flex;

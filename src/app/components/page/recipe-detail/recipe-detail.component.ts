@@ -17,6 +17,7 @@ export class RecipeDetailComponent implements OnInit{
   comment: string = "";
   userHaveRated: boolean;
   currentUserId="UserForPractice";
+  maxCommentsPerUser = 4;
 
   constructor(activedRoute: ActivatedRoute,private recipeService: RecipeService){
     activedRoute.params.subscribe( param => {
@@ -27,19 +28,25 @@ export class RecipeDetailComponent implements OnInit{
   }
 
   ngOnInit(){
-    console.log(this.recipe)
     this.userHaveRated = this.findIfUserHaveRatedRecipe();
   }
 
   onSubmit(rating: number,comment: string){
+    if(comment){
+      if (this.countUserComments() >= this.maxCommentsPerUser) {
+        alert(`You have reached the maximum limit of ${this.maxCommentsPerUser} comments.`);
+        return;
+      }
+    }
+
     if(rating && comment){
-      this.recipeService.createReviewWithCommentAndRating(this.recipe.id,rating,comment);
+      this.recipeService.createReview(this.recipe.id,rating,comment);
       this.userHaveRated = true;
     }else if(rating && !comment){
-      this.recipeService.createReviewWithRating(this.recipe.id,rating);
+      this.recipeService.createReview(this.recipe.id,rating,null);
       this.userHaveRated = true;
     }else{
-      this.recipeService.createReviewWithComment(this.recipe.id,comment);
+      this.recipeService.createReview(this.recipe.id,null,comment);
     }
     
     this.clickedStarIndex = 0;
@@ -79,6 +86,13 @@ export class RecipeDetailComponent implements OnInit{
     }else{
       return false;
     }
+  }
+
+  countUserComments(): number {
+    if (this.currentUserId && this.recipe.reviews) {
+      return this.recipe.reviews.filter(review => review.user_id === this.currentUserId && review.commentText).length;
+    }
+    return 0;
   }
 
 

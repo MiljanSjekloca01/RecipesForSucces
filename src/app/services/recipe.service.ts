@@ -92,12 +92,11 @@ export class RecipeService {
             this.http.post<{reviewId: string}>(`https://recipesforsucces-cdfa9-default-rtdb.europe-west1.firebasedatabase.app/recipes/${id}/reviews.json`,
             reviewData).subscribe( responseData => {
                 const recipeIndex = this.recipes.findIndex(recipe => recipe.id === id);
-                console.log("Komentar",reviewData.commentText)
-                console.log("Rating",reviewData.rating)
                 if( recipeIndex !== -1){
-                    console.log("PROSAO SAM");
                     reviewData.id = responseData.reviewId
                     this.recipes[recipeIndex].reviews.push(reviewData)
+                    if(reviewData.rating) this.recipes[recipeIndex].ratings.push(reviewData.rating)
+                    
                 }
             })
         }
